@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block page_title %} index page {% endblock %}
+
+{% block header_references %}
+    <link rel="stylesheet" href="{% static "products/products.css" %}">
+    <link rel="stylesheet" href="{% static "products/includes/header.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include 'products/includes/header.html' with active_page='productslist' %}
+     <ul>
+        {% for pro_list in products %}
+            <li> <a href="{% url 'products' pro_list %}"> {{ pro_list }} </a> </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

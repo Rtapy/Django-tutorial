@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block page_title %}
+products page
+{% endblock %}
+
+{% block header_references %}
+    <link rel="stylesheet" href="{% static "products/product.css" %}">
+    <link rel="stylesheet" href="{% static "products/includes/header.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include 'products/includes/header.html' with active_page='product'%}
+     <h1 > {{ proo|title }} </h1>
+    {% if product is not None  %}
+    <h2> {{ product }} </h2>
+    {% else %}
+    <p>there is no data</p>
+    {% endif %}
+{% endblock %}
